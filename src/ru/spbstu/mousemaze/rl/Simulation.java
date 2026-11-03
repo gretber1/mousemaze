@@ -110,6 +110,12 @@ public class Simulation {
         return Collections.unmodifiableList(trail);
     }
 
+    /** Выпита ли вода в клетке в текущей эпохе (такую каплю на поле не рисуем). */
+    public boolean isWaterDrunk(int x, int y) {
+        // Эпоха закончилась (сыр или лимит шагов): вода сразу возвращается на поле.
+        return inEpoch && env.isWaterDrunk(x, y);
+    }
+
     public int epochsDone() {
         return epochsDone;
     }
