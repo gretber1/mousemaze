@@ -98,6 +98,12 @@ public class Environment {
         return waterCount;
     }
 
+    /** Выпита ли капля воды в клетке (x, y) в текущей эпохе. Для отрисовки. */
+    public boolean isWaterDrunk(int cx, int cy) {
+        int i = waterIndex[cx][cy];
+        return i >= 0 && (waterMask & (1L << i)) != 0;
+    }
+
     private State state() {
         return new State(x, y, waterMask);
     }
