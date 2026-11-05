@@ -126,7 +126,11 @@ public class MazePanel extends JPanel {
                 int t = top(geo, y);
                 int c = geo.cell();
                 switch (type) {
-                    case WATER -> drawWater(g, l, t, c);
+                    case WATER -> {
+                        if (!simulation.isWaterDrunk(x, y)) {
+                            drawWater(g, l, t, c);
+                        }
+                    }
                     case SHOCK -> drawShock(g, l, t, c);
                     case CHEESE -> drawCheese(g, l, t, c);
                     case EMPTY -> { }
